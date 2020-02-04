@@ -25,8 +25,8 @@ public class Helo {
         lista2.add("a");
         String s1 = " a la       ";
         String result = "nope";
-        int aNumber = 5;
-        int bNumber = 12;
+        int aNumber = -7;
+        int bNumber = 0;
         for (String x : lista2){
             System.out.print(x);
         }
@@ -50,7 +50,13 @@ public class Helo {
 
 
         }}
-        System.out.print(result);
+        System.out.println(result);
+        String silniaA ="Silnia to "+ silnia(5) + "";
+        String potega = "Potego to "+ potegowanie(2,10) + "";
+        String fibbo = "Ciąg fibbonaciego to " + fibonacci(12)+ "";
+        System.out.println(potega);
+        System.out.println(fibbo);
+        System.out.println(silniaA);
 
       String numery =  changeNumbers(aNumber, bNumber);
         System.out.println(numery);
@@ -58,10 +64,20 @@ public class Helo {
 
 
    private static String changeNumbers(int a, int b){
-        a= (b*a);
-        b = (a/b);
-        a = (a/b);
-        return "Teraz A to "+ a + " B to "+b ;
+        if(a == 0){
+            a = b;
+            b =0;
+        }
+        else if (b ==0){
+            b = a;
+            a = 0;
+        }
+        else {
+            a = (b * a);
+            b = (a / b);
+            a = (a / b);
+        }
+       return "Teraz A to "+ a + " B to "+b ;
     }
 
     //    } }
@@ -70,6 +86,37 @@ public class Helo {
             return true;
         }
         return false;
+    }
+    private static int silnia(int n){
+        if(n  == 0){
+            return 1;
+        }
+        return  n * silnia(n-1);
+
+    }
+    private static int fibonacci(int n){
+        if(n<=1){
+            return n;}
+            return fibonacci(n-1)+fibonacci(n-2);
+
+
+    }
+    private static  int potegowanie(int n, int s){
+        int wynik =1;
+        if(s == 0){
+            return 1;
+        }
+      else  if (s == 1){
+            return n;
+        }
+      else
+        {
+            while(s>0){
+                wynik = wynik *n;
+                s--;
+            }
+        }
+        return  wynik;
     }
 
 }
